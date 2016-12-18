@@ -1,0 +1,3 @@
+cm_subs_service_voice_ec:@location1;
+cm_subs_service_voice_ecmember:@location2;
+cm_subs_service_voice_bwlist:@location3;

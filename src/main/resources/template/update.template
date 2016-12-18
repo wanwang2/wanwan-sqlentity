@@ -1,0 +1,18 @@
+
+private static final String sql = "@location1";
+
+public void update() {
+	jdbcTemplate.update(sql, @location1.bean);
+}
+
+private static final String sql = "@location2";
+
+public void update() {
+	jdbcTemplate.update(sql, @location2.bean);
+}
+
+private static final String sql = "@location3";
+
+public void update() {
+	jdbcTemplate.update(sql, @location3.bean);
+}

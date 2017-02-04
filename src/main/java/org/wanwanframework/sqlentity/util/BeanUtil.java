@@ -1,8 +1,8 @@
 package org.wanwanframework.sqlentity.util;
 
 import org.apache.commons.lang.StringUtils;
-import org.wanwanframework.log.Log;
 import org.wanwanframwork.file.FileReader;
+import org.wanwanframwork.file.Log;
 
 public class BeanUtil {
 

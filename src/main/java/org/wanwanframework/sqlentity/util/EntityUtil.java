@@ -1,6 +1,7 @@
 package org.wanwanframework.sqlentity.util;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -17,12 +18,26 @@ import org.wanwanframwork.file.util.NameUtil;
 public class EntityUtil {
 
 	public static Map<String, String> typeMap;
+	public static Map<String, String> commentMap;
 	
 	public static String getCreate(String sql) {
 		int start 	= sql.indexOf("(");
 		int end	  	= sql.lastIndexOf(")");
 		String sub 	= sql.substring(start + 1, end);
 		return sub;
+	}
+	
+	public static Map<String, String> getComment(String comment) {
+		comment = comment.replaceAll("comment on column \\w+.", "");
+		comment = comment.replace("\r\n", "");
+		String[] fields = comment.split(";");
+		String[] keyValue;
+		Map<String, String> map = new HashMap<String, String>();
+		for(int i = 0; i < fields.length; i++) {
+			keyValue = fields[i].split("is");
+			map.put(keyValue[0].trim(), keyValue[1].trim());
+		}
+		return map;
 	}
 	
 	public static Map<String, String> getType(String content) {
@@ -40,7 +55,7 @@ public class EntityUtil {
 	public static Map<String, String> getField(String sql) {
 		sql = sql.replace("\r\n", "");
 		String[] fields = sql.split(",");
-		Map<String, String> map = new HashMap<String, String>();
+		Map<String, String> map = new LinkedHashMap<String, String>();
 		for(int i = 0; i < fields.length; i++) {
 			String fieldString = fields[i].trim();
 			String[] keyValue = fieldString.split("\\s+");
@@ -61,30 +76,36 @@ public class EntityUtil {
 		return value;
 	}
 	
-	public static void printMap(Map<String, String> map) {
+	public static void printMap(Map<String, String> map, Map<String, String> comment) {
 		Set<String> keySet = map.keySet();
 		for (String key:keySet) {
 			String value = map.get(key);
-			printSingle(key, value);
+			String commentValue = comment.get(key);
+			printSingle(key, value, commentValue);
 		}
 	}
 	
-	public static void printSingle(String key, String value) {
+	public static void printSingle(String key, String value, String commentValue) {
 		key = StringUtils.lowerCase(key);
 		key = NameUtil.replace(key, "_", "");
 		Log.print_head = "";
-		Log.log("private " + value + " " + key + ";");
+		Log.log("private " + value + " " + key + "; // " + commentValue);
 	}
 
 	public static void process() {
 		String type = FileReader.load("./src/main/resources/entity/entityType.txt");
+		
 		typeMap = getType(type);
-		String content = FileReader.load("./src/main/resources/sql.txt");
+		String sqltxt = FileReader.load("./src/main/resources/sql.txt");
+		String[] contentArray = sqltxt.split("\r\n\r\n");
+		String content = contentArray[0];
+		String comment = contentArray[1];
+		content = content.replaceAll("not null", "");
 		String sql = getCreate(content);
 		Log.log(sql);
 		Map<String, String> map = getField(sql);
 		Log.log(map);
-		printMap(map);
+		printMap(map, getComment(comment));
 	}
 	
 	public static void main(String[] args) {

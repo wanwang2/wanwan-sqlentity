@@ -1,24 +1,83 @@
-create table CM_SUBS_SERVICE_VOICE_EC
+create table TF_IMEI_SEPARATE_WEEK_NEW
 (
-  PROD_INST_ID       VARCHAR2(32),
-  PROVINCE_ID        VARCHAR2(3),
-  SUBS_ID            VARCHAR2(18),
-  PROD_ID            VARCHAR2(32),
-  APN_ID             VARCHAR2(20),
-  APN_NAME           VARCHAR2(32),
-  EC_SUBS_ID         VARCHAR2(18),
-  CHARG_TYPE         VARCHAR2(1),
-  FWRD_FLAG        	 VARCHAR2(1),
-  FWRD_MSISDN     	 VARCHAR2(32),
-  ACCT_LIMIT         VARCHAR2(20),
-  LOCK_FLAG          VARCHAR2(1),
-  STATUS			 VARCHAR2(2),
-  CREATED_TIME       DATE,
-  LAST_MODIFIED_TIME DATE,
-  EC_SUBS_ID_V1      VARCHAR2(18),
-  CHARG_TYPE_V1      VARCHAR2(1),
-  FWRD_FLAG_V1       VARCHAR2(1),
-  FWRD_MSISDN_V1     VARCHAR2(32),
-  ACCT_LIMIT_V1      VARCHAR2(20),
-  LOCK_FLAG_V1       VARCHAR2(1)
-);
+  SERIAL_NUMBER              VARCHAR2(20) not null,
+  MSISDN                     VARCHAR2(30) not null,
+  WEEK_RANGE                 VARCHAR2(50) not null,
+  PROVINCEID                 VARCHAR2(4) not null,
+  CTIY_BELONG                VARCHAR2(20) not null,
+  ECCUST_ID                  VARCHAR2(32) not null,
+  ECCUST_NAME                VARCHAR2(150) not null,
+  WHITENAME_FEATURE          VARCHAR2(50),
+  INDUSTRY_UP_FLOW           NUMBER,
+  INDUSTRY_DOWN_FLOW         NUMBER,
+  MOBILE_UP_FLOW             NUMBER,
+  MOBILE_DOWN_FLOW           NUMBER,
+  FREE_RESOURCE_RATIO        NUMBER not null,
+  CURRENT_PACKAGE            VARCHAR2(20),
+  TERMINAL_TYPE_CHANGE_COUNT NUMBER not null,
+  IMEI_CHANGE_COUNT          NUMBER not null,
+  INDUSTRY_TERMINAL_COUNT    NUMBER not null,
+  MOBILE_TERMINAL_COUNT      NUMBER not null,
+  RISKLEVEL                  VARCHAR2(1),
+  IMPORT_TIME                DATE not null,
+  IMPORT_BATCHID             VARCHAR2(20) not null,
+  EXCEPTION_TYPE             VARCHAR2(50),
+  FEEDBACK                   VARCHAR2(250),
+  DATA_TIME                  DATE not null,
+  FIRST_FEEDBACK_TIME        DATE,
+  LAST_FEEDBACK_TIME         DATE
+)
+
+
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.SERIAL_NUMBER
+  is '序号';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.MSISDN
+  is '卡号';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.WEEK_RANGE
+  is '统计周期';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.PROVINCEID
+  is '归属省份';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.CTIY_BELONG
+  is '归属地市';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.ECCUST_ID
+  is '集团客户编码';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.ECCUST_NAME
+  is '集团客户名称';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.WHITENAME_FEATURE
+  is '白名单特征';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.INDUSTRY_UP_FLOW
+  is '行业终端上行流量  (单位:mb)';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.INDUSTRY_DOWN_FLOW
+  is '行业终端下行流量    (单位:mb)';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.MOBILE_UP_FLOW
+  is '手机类终端上行流量  (单位:mb)';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.MOBILE_DOWN_FLOW
+  is '手机类终端下行流量  (单位:mb)';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.FREE_RESOURCE_RATIO
+  is '流量与套餐免费资源比值';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.CURRENT_PACKAGE
+  is '当前套餐  ';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.TERMINAL_TYPE_CHANGE_COUNT
+  is '终端类别变换次数';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.IMEI_CHANGE_COUNT
+  is 'imei变化次数';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.INDUSTRY_TERMINAL_COUNT
+  is '行业终端个数';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.MOBILE_TERMINAL_COUNT
+  is '手机类终端个数';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.RISKLEVEL
+  is '风险等级';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.IMPORT_TIME
+  is '导入时间';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.IMPORT_BATCHID
+  is '导入批次';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.EXCEPTION_TYPE
+  is '异常原因类别';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.FEEDBACK
+  is '反馈信息';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.DATA_TIME
+  is '数据时间 文件名转换为时间：查询条件 (卡号+数据时间 索引) 分区  ';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.FIRST_FEEDBACK_TIME
+  is '最早反馈时间';
+comment on column TF_IMEI_SEPARATE_WEEK_NEW.LAST_FEEDBACK_TIME
+  is '最晚反馈时间';

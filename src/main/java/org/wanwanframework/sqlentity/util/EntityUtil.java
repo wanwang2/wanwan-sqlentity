@@ -87,7 +87,9 @@ public class EntityUtil {
 	
 	public static void printSingle(String key, String value, String commentValue) {
 		key = StringUtils.lowerCase(key);
+		key = key.replace("id", "Id");
 		key = NameUtil.replace(key, "_", "");
+	
 		Log.print_head = "";
 		Log.log("private " + value + " " + key + "; // " + commentValue);
 	}

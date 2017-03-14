@@ -31,7 +31,7 @@ public class SqlUpdate {
 			String table = key.substring(0, tableIndex);
 			String where = key.substring(tableIndex + 1, key.length() - 1);
 			Log.log(where);
-			String lineTemplate = "UPDATE " + table.trim() + " SET@content WHERE " + MappingUtil.processMapping(where, whereMapping);
+			String lineTemplate = "UPDATE " + table.trim() + " SET@content WHERE " + MappingUtil.toMapping(where, whereMapping);
 			Log.log(where);
 			content = MappingUtil.toField(map.get(key), " @=?,");
 			//content = MappingUtil.toLine(content, lineTemplate, "@content");

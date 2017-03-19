@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
-import org.wanwanframework.file.map.LineTool;
+import org.wanwanframework.file.map.FilterUtil;
 import org.wanwanframwork.file.FileReader;
 import org.wanwanframwork.file.Log;
 import org.wanwanframwork.file.util.NameUtil;
@@ -25,7 +25,7 @@ public class Controller {
 		sql = sql.replace("\r\n", "");
 		String[] fields = sql.split(","); 
 		for(int i = 0; i < fields.length; i++) {
-			content += LineTool.printSingle(fields[i].trim(), fieldTemplate);
+			content += FilterUtil.filterName(fields[i].trim(), fieldTemplate);
 		}
 		content = content.substring(0, content.length() - 1);
 		content = lineTemplate.replace("@content", content);

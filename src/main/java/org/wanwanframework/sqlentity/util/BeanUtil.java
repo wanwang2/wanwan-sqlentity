@@ -18,7 +18,7 @@ public class BeanUtil {
 		key = StringUtils.lowerCase(key);
 		key = replaceUnderlineAndfirstToUpper(key, "_", "");
 		key = firstCharacterToUpper(key);
-		Log.print_head = "";
+//		Log.print_head = "";
 		System.out.print(" bean.get" + key + "(),");
 	}
 	

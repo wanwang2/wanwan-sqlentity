@@ -14,7 +14,7 @@ public class Controller {
 	public static void printSingle(String key, String value) {
 		key = StringUtils.lowerCase(key);
 		key = NameUtil.replace(key, "_", "");
-		Log.print_head = "";
+//		Log.print_head = "";
 		Log.log("private " + value + " " + key + ";");
 	}
 

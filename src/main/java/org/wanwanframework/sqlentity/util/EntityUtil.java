@@ -90,7 +90,7 @@ public class EntityUtil {
 		key = key.replace("id", "Id");
 		key = NameUtil.replace(key, "_", "");
 	
-		Log.print_head = "";
+//		Log.print_head = "";
 		Log.log("private " + value + " " + key + "; // " + commentValue);
 	}
 

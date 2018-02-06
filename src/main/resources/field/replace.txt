@@ -1,0 +1,6 @@
+.replaceAll("\(\d+\)", "")
+.replaceAll("DATE", "")
+.replaceAll("NUMBER", "")
+.replaceAll("VARCHAR2", "")
+.replaceAll("not null", "")
+.replaceAll("\s+", "");

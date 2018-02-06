@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.wanwanframwork.file.FileReader;
-import org.wanwanframwork.file.FileUtil;
-import org.wanwanframwork.file.Log;
+import org.wanwanframework.file.FileReader;
+import org.wanwanframework.file.FileUtil;
+import org.wanwanframework.file.Log;
 
 public class TableConfigController {
 

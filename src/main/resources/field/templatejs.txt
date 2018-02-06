@@ -1,0 +1,5 @@
+var @ = document.getElementById("@").value;
+if(@ == null || @.length == 0) {
+	document.getElementById("@").focus();
+	return false;
+}

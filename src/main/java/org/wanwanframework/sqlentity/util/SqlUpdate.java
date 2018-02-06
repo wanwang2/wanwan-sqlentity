@@ -3,10 +3,10 @@ package org.wanwanframework.sqlentity.util;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.wanwanframework.file.FileReader;
+import org.wanwanframework.file.Log;
 import org.wanwanframework.file.map.LineTool;
 import org.wanwanframework.file.map.MappingUtil;
-import org.wanwanframwork.file.FileReader;
-import org.wanwanframwork.file.Log;
 
 /**
  * update sql

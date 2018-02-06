@@ -1,8 +1,8 @@
 package org.wanwanframework.sqlentity.util;
 
 import org.apache.commons.lang.StringUtils;
-import org.wanwanframwork.file.FileReader;
-import org.wanwanframwork.file.Log;
+import org.wanwanframework.file.FileReader;
+import org.wanwanframework.file.Log;
 
 public class BeanSelectMapUtil {
 

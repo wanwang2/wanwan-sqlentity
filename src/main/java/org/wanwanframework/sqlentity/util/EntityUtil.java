@@ -6,9 +6,9 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
-import org.wanwanframwork.file.FileReader;
-import org.wanwanframwork.file.Log;
-import org.wanwanframwork.file.util.NameUtil;
+import org.wanwanframework.file.FileReader;
+import org.wanwanframework.file.Log;
+import org.wanwanframework.file.util.NameUtil;
 
 /**
  * 提供从sql-create 语句到entity之间的转换

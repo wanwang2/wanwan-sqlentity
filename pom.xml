@@ -25,14 +25,9 @@
 		<dependency>
 			<groupId>org.wanwanframework.file</groupId>
 			<artifactId>wanwan-file</artifactId>
-			<version>0.0.1</version>
+			<version>1.0.1</version>
 		</dependency>
-		
-		<dependency>
-			<groupId>org.wanwanframework.file.map</groupId>
-			<artifactId>wanwan-file-map</artifactId>
-			<version>0.0.1</version>
-		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>

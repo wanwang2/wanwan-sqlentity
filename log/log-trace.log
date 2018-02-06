@@ -1,0 +1,162 @@
+2017-07-27 14:40:33,021 2150 [main] INFO  org.wanwanframwork.file.Log - 
+  SERIAL_NUMBER              VARCHAR2(20) ,
+  MSISDN                     VARCHAR2(30) ,
+  WEEK_RANGE                 VARCHAR2(50) ,
+  PROVINCEID                 VARCHAR2(4) ,
+  CTIY_BELONG                VARCHAR2(20) ,
+  ECCUST_ID                  VARCHAR2(32) ,
+  ECCUST_NAME                VARCHAR2(150) ,
+  WHITENAME_FEATURE          VARCHAR2(50),
+  INDUSTRY_UP_FLOW           NUMBER,
+  INDUSTRY_DOWN_FLOW         NUMBER,
+  MOBILE_UP_FLOW             NUMBER,
+  MOBILE_DOWN_FLOW           NUMBER,
+  FREE_RESOURCE_RATIO        NUMBER ,
+  CURRENT_PACKAGE            VARCHAR2(20),
+  TERMINAL_TYPE_CHANGE_COUNT NUMBER ,
+  IMEI_CHANGE_COUNT          NUMBER ,
+  INDUSTRY_TERMINAL_COUNT    NUMBER ,
+  MOBILE_TERMINAL_COUNT      NUMBER ,
+  RISKLEVEL                  VARCHAR2(1),
+  IMPORT_TIME                DATE ,
+  IMPORT_BATCHID             VARCHAR2(20) ,
+  EXCEPTION_TYPE             VARCHAR2(50),
+  FEEDBACK                   VARCHAR2(250),
+  DATA_TIME                  DATE ,
+  FIRST_FEEDBACK_TIME        DATE,
+  LAST_FEEDBACK_TIME         DATE
+
+2017-07-27 14:40:33,036 2165 [main] INFO  org.wanwanframwork.file.Log - {SERIAL_NUMBER=String, MSISDN=String, WEEK_RANGE=String, PROVINCEID=String, CTIY_BELONG=String, ECCUST_ID=String, ECCUST_NAME=String, WHITENAME_FEATURE=String, INDUSTRY_UP_FLOW=int, INDUSTRY_DOWN_FLOW=int, MOBILE_UP_FLOW=int, MOBILE_DOWN_FLOW=int, FREE_RESOURCE_RATIO=int, CURRENT_PACKAGE=String, TERMINAL_TYPE_CHANGE_COUNT=int, IMEI_CHANGE_COUNT=int, INDUSTRY_TERMINAL_COUNT=int, MOBILE_TERMINAL_COUNT=int, RISKLEVEL=String, IMPORT_TIME=Date, IMPORT_BATCHID=String, EXCEPTION_TYPE=String, FEEDBACK=String, DATA_TIME=Date, FIRST_FEEDBACK_TIME=Date, LAST_FEEDBACK_TIME=Date}
+2017-07-27 14:40:33,073 2202 [main] INFO  org.wanwanframwork.file.Log - private String serialNumber; // '序号'
+2017-07-27 14:40:33,075 2204 [main] INFO  org.wanwanframwork.file.Log - private String msisdn; // '卡号'
+2017-07-27 14:40:33,075 2204 [main] INFO  org.wanwanframwork.file.Log - private String weekRange; // '统计周期'
+2017-07-27 14:40:33,077 2206 [main] INFO  org.wanwanframwork.file.Log - private String provinceId; // '归属省份'
+2017-07-27 14:40:33,078 2207 [main] INFO  org.wanwanframwork.file.Log - private String ctiyBelong; // '归属地市'
+2017-07-27 14:40:33,078 2207 [main] INFO  org.wanwanframwork.file.Log - private String eccustId; // '集团客户编码'
+2017-07-27 14:40:33,079 2208 [main] INFO  org.wanwanframwork.file.Log - private String eccustName; // '集团客户名称'
+2017-07-27 14:40:33,081 2210 [main] INFO  org.wanwanframwork.file.Log - private String whitenameFeature; // '白名单特征'
+2017-07-27 14:40:33,082 2211 [main] INFO  org.wanwanframwork.file.Log - private int industryUpFlow; // '行业终端上行流量  (单位:mb)'
+2017-07-27 14:40:33,085 2214 [main] INFO  org.wanwanframwork.file.Log - private int industryDownFlow; // '行业终端下行流量    (单位:mb)'
+2017-07-27 14:40:33,085 2214 [main] INFO  org.wanwanframwork.file.Log - private int mobileUpFlow; // '手机类终端上行流量  (单位:mb)'
+2017-07-27 14:40:33,086 2215 [main] INFO  org.wanwanframwork.file.Log - private int mobileDownFlow; // '手机类终端下行流量  (单位:mb)'
+2017-07-27 14:40:33,086 2215 [main] INFO  org.wanwanframwork.file.Log - private int freeResourceRatio; // '流量与套餐免费资源比值'
+2017-07-27 14:40:33,086 2215 [main] INFO  org.wanwanframwork.file.Log - private String currentPackage; // '当前套餐  '
+2017-07-27 14:40:33,087 2216 [main] INFO  org.wanwanframwork.file.Log - private int terminalTypeChangeCount; // '终端类别变换次数'
+2017-07-27 14:40:33,088 2217 [main] INFO  org.wanwanframwork.file.Log - private int imeiChangeCount; // 'imei变化次数'
+2017-07-27 14:40:33,093 2222 [main] INFO  org.wanwanframwork.file.Log - private int industryTerminalCount; // '行业终端个数'
+2017-07-27 14:40:33,093 2222 [main] INFO  org.wanwanframwork.file.Log - private int mobileTerminalCount; // '手机类终端个数'
+2017-07-27 14:40:33,094 2223 [main] INFO  org.wanwanframwork.file.Log - private String risklevel; // '风险等级'
+2017-07-27 14:40:33,094 2223 [main] INFO  org.wanwanframwork.file.Log - private Date importTime; // '导入时间'
+2017-07-27 14:40:33,094 2223 [main] INFO  org.wanwanframwork.file.Log - private String importBatchId; // '导入批次'
+2017-07-27 14:40:33,094 2223 [main] INFO  org.wanwanframwork.file.Log - private String exceptionType; // '异常原因类别'
+2017-07-27 14:40:33,094 2223 [main] INFO  org.wanwanframwork.file.Log - private String feedback; // '反馈信息'
+2017-07-27 14:40:33,094 2223 [main] INFO  org.wanwanframwork.file.Log - private Date dataTime; // '数据时间 文件名转换为时间：查询条件 (卡号+数据时间 索引) 分区  '
+2017-07-27 14:40:33,095 2224 [main] INFO  org.wanwanframwork.file.Log - private Date firstFeedbackTime; // '最早反馈时间'
+2017-07-27 14:40:33,095 2224 [main] INFO  org.wanwanframwork.file.Log - private Date lastFeedbackTime; // '最晚反馈时间'
+2017-07-27 14:58:01,492 366  [main] INFO  org.wanwanframwork.file.Log - 
+  SERIAL_NUMBER              VARCHAR2(20) ,
+  MSISDN                     VARCHAR2(30) ,
+  WEEK_RANGE                 VARCHAR2(50) ,
+  PROVINCEID                 VARCHAR2(4) ,
+  CTIY_BELONG                VARCHAR2(20) ,
+  ECCUST_ID                  VARCHAR2(32) ,
+  ECCUST_NAME                VARCHAR2(150) ,
+  WHITENAME_FEATURE          VARCHAR2(50),
+  INDUSTRY_UP_FLOW           NUMBER,
+  INDUSTRY_DOWN_FLOW         NUMBER,
+  MOBILE_UP_FLOW             NUMBER,
+  MOBILE_DOWN_FLOW           NUMBER,
+  FREE_RESOURCE_RATIO        NUMBER ,
+  CURRENT_PACKAGE            VARCHAR2(20),
+  TERMINAL_TYPE_CHANGE_COUNT NUMBER ,
+  IMEI_CHANGE_COUNT          NUMBER ,
+  INDUSTRY_TERMINAL_COUNT    NUMBER ,
+  MOBILE_TERMINAL_COUNT      NUMBER ,
+  RISKLEVEL                  VARCHAR2(1),
+  IMPORT_TIME                DATE ,
+  IMPORT_BATCHID             VARCHAR2(20) ,
+  EXCEPTION_TYPE             VARCHAR2(50),
+  FEEDBACK                   VARCHAR2(250),
+  DATA_TIME                  DATE ,
+  FIRST_FEEDBACK_TIME        DATE,
+  LAST_FEEDBACK_TIME         DATE
+
+2017-07-27 14:58:01,560 434  [main] INFO  org.wanwanframwork.file.Log - {SERIAL_NUMBER=String, MSISDN=String, WEEK_RANGE=String, PROVINCEID=String, CTIY_BELONG=String, ECCUST_ID=String, ECCUST_NAME=String, WHITENAME_FEATURE=String, INDUSTRY_UP_FLOW=int, INDUSTRY_DOWN_FLOW=int, MOBILE_UP_FLOW=int, MOBILE_DOWN_FLOW=int, FREE_RESOURCE_RATIO=int, CURRENT_PACKAGE=String, TERMINAL_TYPE_CHANGE_COUNT=int, IMEI_CHANGE_COUNT=int, INDUSTRY_TERMINAL_COUNT=int, MOBILE_TERMINAL_COUNT=int, RISKLEVEL=String, IMPORT_TIME=Date, IMPORT_BATCHID=String, EXCEPTION_TYPE=String, FEEDBACK=String, DATA_TIME=Date, FIRST_FEEDBACK_TIME=Date, LAST_FEEDBACK_TIME=Date}
+2017-07-27 14:58:01,579 453  [main] INFO  org.wanwanframwork.file.Log - private String serialNumber; // '序号'
+2017-07-27 14:58:01,580 454  [main] INFO  org.wanwanframwork.file.Log - private String msisdn; // '卡号'
+2017-07-27 14:58:01,580 454  [main] INFO  org.wanwanframwork.file.Log - private String weekRange; // '统计周期'
+2017-07-27 14:58:01,580 454  [main] INFO  org.wanwanframwork.file.Log - private String provinceId; // '归属省份'
+2017-07-27 14:58:01,581 455  [main] INFO  org.wanwanframwork.file.Log - private String ctiyBelong; // '归属地市'
+2017-07-27 14:58:01,581 455  [main] INFO  org.wanwanframwork.file.Log - private String eccustId; // '集团客户编码'
+2017-07-27 14:58:01,581 455  [main] INFO  org.wanwanframwork.file.Log - private String eccustName; // '集团客户名称'
+2017-07-27 14:58:01,581 455  [main] INFO  org.wanwanframwork.file.Log - private String whitenameFeature; // '白名单特征'
+2017-07-27 14:58:01,581 455  [main] INFO  org.wanwanframwork.file.Log - private int industryUpFlow; // '行业终端上行流量  (单位:mb)'
+2017-07-27 14:58:01,582 456  [main] INFO  org.wanwanframwork.file.Log - private int industryDownFlow; // '行业终端下行流量    (单位:mb)'
+2017-07-27 14:58:01,582 456  [main] INFO  org.wanwanframwork.file.Log - private int mobileUpFlow; // '手机类终端上行流量  (单位:mb)'
+2017-07-27 14:58:01,582 456  [main] INFO  org.wanwanframwork.file.Log - private int mobileDownFlow; // '手机类终端下行流量  (单位:mb)'
+2017-07-27 14:58:01,582 456  [main] INFO  org.wanwanframwork.file.Log - private int freeResourceRatio; // '流量与套餐免费资源比值'
+2017-07-27 14:58:01,582 456  [main] INFO  org.wanwanframwork.file.Log - private String currentPackage; // '当前套餐  '
+2017-07-27 14:58:01,583 457  [main] INFO  org.wanwanframwork.file.Log - private int terminalTypeChangeCount; // '终端类别变换次数'
+2017-07-27 14:58:01,583 457  [main] INFO  org.wanwanframwork.file.Log - private int imeiChangeCount; // 'imei变化次数'
+2017-07-27 14:58:01,583 457  [main] INFO  org.wanwanframwork.file.Log - private int industryTerminalCount; // '行业终端个数'
+2017-07-27 14:58:01,583 457  [main] INFO  org.wanwanframwork.file.Log - private int mobileTerminalCount; // '手机类终端个数'
+2017-07-27 14:58:01,584 458  [main] INFO  org.wanwanframwork.file.Log - private String risklevel; // '风险等级'
+2017-07-27 14:58:01,585 459  [main] INFO  org.wanwanframwork.file.Log - private Date importTime; // '导入时间'
+2017-07-27 14:58:01,585 459  [main] INFO  org.wanwanframwork.file.Log - private String importBatchId; // '导入批次'
+2017-07-27 14:58:01,585 459  [main] INFO  org.wanwanframwork.file.Log - private String exceptionType; // '异常原因类别'
+2017-07-27 14:58:01,585 459  [main] INFO  org.wanwanframwork.file.Log - private String feedback; // '反馈信息'
+2017-07-27 14:58:01,586 460  [main] INFO  org.wanwanframwork.file.Log - private Date dataTime; // '数据时间 文件名转换为时间：查询条件 (卡号+数据时间 索引) 分区  '
+2017-07-27 14:58:01,586 460  [main] INFO  org.wanwanframwork.file.Log - private Date firstFeedbackTime; // '最早反馈时间'
+2017-07-27 14:58:01,586 460  [main] INFO  org.wanwanframwork.file.Log - private Date lastFeedbackTime; // '最晚反馈时间'
+2017-07-27 15:17:43,599 383  [main] INFO  org.wanwanframwork.file.Log - 
+  ID               NUMBER(20) ,
+  ALARM_CODE       VARCHAR2(32) ,
+  MESSAGE          CLOB,
+  TYPE             VARCHAR2(32),
+  EMAIL_ATTACHMENT VARCHAR2(2000) ,
+  HAS_SENT         VARCHAR2(1) default 0,
+  NOTIFY_TIME      DATE,
+  CREATE_BY        VARCHAR2(128) ,
+  CREATE_AT        DATE ,
+  UPDATE_BY        VARCHAR2(128) ,
+  UPDATE_AT        DATE 
+
+2017-07-27 15:17:43,606 390  [main] INFO  org.wanwanframwork.file.Log - {ID=int, ALARM_CODE=String, MESSAGE=null, TYPE=String, EMAIL_ATTACHMENT=String, NOTIFY_TIME=Date, CREATE_BY=String, CREATE_AT=Date, UPDATE_BY=String, UPDATE_AT=Date}
+2017-07-27 15:18:14,220 487  [main] INFO  org.wanwanframwork.file.Log - 
+  ID               NUMBER(20) ,
+  ALARM_CODE       VARCHAR2(32) ,
+  MESSAGE          CLOB,
+  TYPE             VARCHAR2(32),
+  EMAIL_ATTACHMENT VARCHAR2(2000) ,
+  HAS_SENT         VARCHAR2(1) default 0,
+  NOTIFY_TIME      DATE,
+  CREATE_BY        VARCHAR2(128) ,
+  CREATE_AT        DATE ,
+  UPDATE_BY        VARCHAR2(128) ,
+  UPDATE_AT        DATE 
+
+2017-07-27 15:18:14,229 496  [main] INFO  org.wanwanframwork.file.Log - {ID=int, ALARM_CODE=String, MESSAGE=null, TYPE=String, EMAIL_ATTACHMENT=String, NOTIFY_TIME=Date, CREATE_BY=String, CREATE_AT=Date, UPDATE_BY=String, UPDATE_AT=Date}
+2017-07-27 15:21:51,829 383  [main] INFO  org.wanwanframwork.file.Log - 
+  ID               NUMBER(20) ,
+  ALARM_CODE       VARCHAR2(32) ,
+  MESSAGE          CLOB,
+  TYPE             VARCHAR2(32),
+  EMAIL_ATTACHMENT VARCHAR2(2000) ,
+  HAS_SENT         VARCHAR2(1) default 0,
+  NOTIFY_TIME      DATE,
+  CREATE_BY        VARCHAR2(128) ,
+  CREATE_AT        DATE ,
+  UPDATE_BY        VARCHAR2(128) ,
+  UPDATE_AT        DATE 
+
+2017-07-27 15:21:51,834 388  [main] INFO  org.wanwanframwork.file.Log - {ID=int, ALARM_CODE=String, MESSAGE=null, TYPE=String, EMAIL_ATTACHMENT=String, NOTIFY_TIME=Date, CREATE_BY=String, CREATE_AT=Date, UPDATE_BY=String, UPDATE_AT=Date}
+2017-07-27 15:21:51,843 397  [main] INFO  org.wanwanframwork.file.Log - private int Id; // null
+2017-07-27 15:21:51,843 397  [main] INFO  org.wanwanframwork.file.Log - private String alarmCode; // null
+2017-07-27 15:21:51,844 398  [main] INFO  org.wanwanframwork.file.Log - private null message; // '通知内容'
+2017-07-27 15:21:51,844 398  [main] INFO  org.wanwanframwork.file.Log - private String type; // '通知类型'
+2017-07-27 15:21:51,844 398  [main] INFO  org.wanwanframwork.file.Log - private String emailAttachment; // '通知附件'
+2017-07-27 15:21:51,844 398  [main] INFO  org.wanwanframwork.file.Log - private Date notifyTime; // '发送时间'
+2017-07-27 15:21:51,844 398  [main] INFO  org.wanwanframwork.file.Log - private String createBy; // '创建人'
+2017-07-27 15:21:51,845 399  [main] INFO  org.wanwanframwork.file.Log - private Date createAt; // '创建时间'
+2017-07-27 15:21:51,845 399  [main] INFO  org.wanwanframwork.file.Log - private String updateBy; // '修改人'
+2017-07-27 15:21:51,845 399  [main] INFO  org.wanwanframwork.file.Log - private Date updateAt; // '修改时间'
